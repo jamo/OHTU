@@ -1,0 +1,185 @@
+1:  Ei
+
+SCRUM:
+		3ROOLIA
+				-Kehittäjä
+						-Muodostaa scrum tiimin
+								-Tiimiä ei johdeta ulkopuolelta, itse organisoituva
+						-Kaikilla osaaminen, kompetenssi, järjestelmän toteuttamiseen ja suunnitteluun
+						-Työskentelevät samassa paikassa
+				-Scrim master
+						-ohjaa prosessia, rajapinta yrityksen hallintoon
+						-Järjestää scrumiin liittyvät palaverit
+						-"Huolehteii työrahasta"
+				-Product owner
+						-Tuotteen omistaja, hallinoi backlogia
+						-Ainut backlogin priorisoija
+						-Vastuussa backlogista
+			
+			-Scum tiimi, 3-10 kehittäjää
+			-Product Backlog toteutettavan ohjelmiston ominaisuudet/vaatimukset priorisoidussa järjestyksessä
+					-Proriteetiltaan korkeimmalla olevien tehtävien työmäärä arvioitu (kehittäjätiimi)
+					-Asiat voidaan esittää esim. UserStoryinä
+					-Alussa kerätään vain suppeita kuvauksia
+						-Priorisoidaan ja työmäärää arvioidaan
+					
+			-Sprint backlog 
+	SPRINTTI
+			-Alussa 2 osainen sprintin suunnittelu palaveri
+					-Eka Osa
+							-Product owner esittelee product backlogin alussa olevat vaatimukset
+							-Tiimi sisäistää mitä ^tarkoittaa
+							-Valitsee ne, minkä toteuttamiseen voivat sitoutua
+							-Asetetaan Sprint goal - geneerisempi ilmaus siitä, mitä tehdään
+					-Toka Osa
+							-Miten sprintin tavoitteet saavutetaan
+							-lista tehtävistä (task)
+							-Luodaan sprintin backlog
+					-Max 4h kumpikin palaveri
+	  	-Alussa tiimi valitsee ProductBacklogista suoritettavat asiat
+			-Tiimi toteuttaa valitut asiat itseorganisoidusti
+			-Daily scrum palaverit
+					-Päivä alkaa tällä
+					-Max 15min
+					-Kaikki paikalla
+					-Jokaiselle
+							-Mitä sain eilen aikaan
+							-Mitä tänään aikaan
+							-Mitä esteitä
+					-Jokaiselle selviää projetin tilanne
+			-1-4 vkon iteraatiot
+			-Kiinteän pituinen
+			-Valitaan vain sen verran mikä varmasti saadaan tehtyä
+			-Aina lopussa toimiva versio
+			-Vaatimukset eivät muutu sprintin aikana
+			Definition of DONE
+				-analysoitu, dokumentu, suunniteltu, testattu, testaus automatisoitu, integroitu muuhun ohjelmistoon.
+				-Jos ei valmis niin seur sprintissä uudestaan (scrum master vastaa niiden hylkäämisestä)
+			-Laadusta ei tingintä vaikka jotain jäisi tekemättä
+			-Lopuksi katselmointi
+					-katsotaan/demotaan lopputulosta ei powrpoint kalvoja
+					-Product owner katsoo, mitä saatiin tehtyä
+					-Kaikki saa antaa palautetta tuotteesta
+						-Ehdottaa uusia vaatimuksia.
+						->product backlogin uudelleen prioisointi
+					-max 4h
+			-Retrospektiivi
+					-Spintin lopussa ennen seuraavaa sprinttiä pidettävä palaveri, jossa katsotaan omaa työprosessoa
+						-mikä hyvin, missä parannettavaa
+					-Inspect and Adapt
+							-Lyhyt syksli mahdollistaa muutokset
+							-Kannustaa parantamaan työprosessiaan
+			-Jokaisen sprintin yhteydessä uusi sprintin suunnittelu
+			
+Design Patterns
+			-Useita luokkia
+					-Olioiden luomista helpottavat
+					-Ohjelman rakennetta ohjaavat
+					-Ohjelman suoritusta ja laskentaa ohjaavat
+			-muita patterneja
+					-Arkkitehtuurimallit
+					-Project management patterns
+			-Dependency injection
+					-Riippuvuuksien injekointi
+					-YKsikkötestauksen helpottaminen
+					
+Vaatimusten määrittely
+			-Toiminnalliset vaatimukset
+					-Ohjelman toiminnot
+					-Dokumentointi
+							-featurelistoin
+							-UML use caseina
+							-**UserStoryinä**
+									-loppukäyttäjän kannalta arvoa tuottava ominaisuus
+									-Voi olla vain "placeholder" myöhemmin tarkentuvalle vaaatimukselle. Esim. asiakas lisää ostoskoriin oluen
+									-Ei kerro, miten asia pitää toteuttaa
+									-Toteutettaessa pakko tarkentaa
+									-Toteutus tarkastetaan testaamalla (autom tai käsin), hyväksymistesti
+									-Asiakkaan kielellä, ei teknstä kamaa
+									-Kuvauksesta käy ilmi kenelle tuottaa arvoa
+									-ennen toteutusta tarkennettava
+					-INVEST
+						-Independent
+								-Toisistaan riippumattomia
+						-Negotiable
+								-lupaus että tehdän, ei aluksi kattava. tarkennetaan ennen koodausta
+						-Valuable to user/coustomer
+								-
+						-Estimable
+								-Työmäärä arvioitavissa
+								-Auttaa asiakasta priorisoimisessa
+								-Projektin ajan arviointi
+						-Small
+								-Max viikon työpanos
+						-Testable
+								-Pitää voida testata niin että voidaan yksiselitteisesti nähdä onko ominaisuus tehty
+			-ei toiminnalliset vaatimukset
+					-"laatuvaatimukset"
+							-Käytettävyys, testattavuus, laajennettavuus, suorituskyky, skaalautuvuus, tietoturva
+					-ympäristön rajotteet
+							-Toteutusteknologia
+							-intogrointi muihin järjestelmiin
+							-Standardit
+			-Ennen toteutusta
+			-Lineaarisissa malleissa aina kokoneen ennen
+			-Iterativisissa matkan varrella
+			-Asiakas/sen edustaja aktiivisesti mukana prosessissa
+			-Vaiheet
+					-Kartoitus
+							-Selvitetään sidosryhmät (stakeholders)
+							-brainstorm asiakkaan ja kehittäjien kanssa
+							-kuvitellaan käyttäjiä ja niille skenaarioita
+							-protptyyppejä ja käyttöliittymäluonnoksia
+									-Auttavat asiakasta tarkenatamaan vaatimuksiaan
+							-Jos korvaa vanhan järjestelmän, voidaan havainnoida käyttäjien toimintaa (etnografia)
+					-analyysi
+							-onko ristiriitoja
+							-riittävän kattavat vaatimukset
+							-vaatimukset testattavissa
+					-validointi
+							-Vastaavatko vaatimukset asiakkaan toiveita
+					-dokumentointi
+							-Ohjelmistokehittäjät : mitä tehdään
+							-Testaajat: toimiiko järjestelmä vaatimusten mukaan
+							-mukana sopparissa
+					-hallinnointi
+			-Edityy usein spiraalimaisesti
+					-ensin kartoiteaan, analydoidaan osa
+					-repeat
+			
+			-1900 
+					-Kaikki kerrallaan
+					-Raskas prosessi
+					-Muutoksia vaikea tehdä
+					-Ei toimi
+			-2000 
+					-tehdään useassa osassa
+							-time to market; halutaan heti tuotantoon
+							-Uusiokäyttä räätälöidään valmiita komponenttejä
+					-voi vaikeuttaa kustannusten arviointia
+							-Väärin muotoiltu vaatimus voi rikkoa jotain
+			-Nykyisin kaikki vaiheet sotketaan yhteen.
+			-Mahdollista saada aiemmin tuotantoon
+		Estimointi
+			-StoryPoint
+				-arvioidaan UserStoryjen pituutta. 
+				-Usein 1 StopyPoint kiinnitetään jonkin asian toteuttamiseen. ei virallinen aika
+			-Aina ohjelmistokehitystiimi estimoi
+			-Asiakas tarkentamassa vaatimuksaan userstoryihin
+			-estimointi epätarkkaa, joten siihen max 15min 
+			-Aika arviot skaalalla tyyliin 1,3,4,5,10,50,100,200, epic
+			-parempi 1,2,4,8,epic
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
