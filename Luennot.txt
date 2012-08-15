@@ -1,64 +1,82 @@
 1:  Ei
 
 SCRUM:
-		3ROOLIA
+		3 ROOLIA
 				-Kehittäjä
 						-Muodostaa scrum tiimin
 								-Tiimiä ei johdeta ulkopuolelta, itse organisoituva
 						-Kaikilla osaaminen, kompetenssi, järjestelmän toteuttamiseen ja suunnitteluun
 						-Työskentelevät samassa paikassa
-				-Scrim master
+				-Scrum master
 						-ohjaa prosessia, rajapinta yrityksen hallintoon
 						-Järjestää scrumiin liittyvät palaverit
-						-"Huolehteii työrahasta"
+						-"Huolehtii työrauhasta"
+						-fasilitioi eli varmistaa, että noudatetaan scrum-prosessia
+						-ei ole projektipäällikkö eli ei suunnittele tai ohjaa muiden töitä
 				-Product owner
-						-Tuotteen omistaja, hallinoi backlogia
+						-Tuotteen omistaja, hallinoi product backlogia
 						-Ainut backlogin priorisoija
-						-Vastuussa backlogista
+						-Vastuussa backlogista eli varmistaa, että lopputuloksessa on tarvittavat ominaisuudet
 			
 			-Scum tiimi, 3-10 kehittäjää
+		(Scrum of scrum: voi olla useita itsenäisiä scrum-tiimejä esim. eri saiteilla, jotka tekevät paikallisen 
+		scrum masterin fasilitoimana tiettyjä kokonaisuuksina, jotka lopulta muodostavat tuotteen)
 			-Product Backlog toteutettavan ohjelmiston ominaisuudet/vaatimukset priorisoidussa järjestyksessä
+					-Prioriteetiltaan korkeimpana ovat ne, joilla on tilaajalle suurin bisnesarvo eli käytännössä
+					 toteutetaan aina ensin tärkeimmät ominaisuudet, joille jää myös eniten testaus- ja käyttöopetteluaikaa
 					-Proriteetiltaan korkeimmalla olevien tehtävien työmäärä arvioitu (kehittäjätiimi)
 					-Asiat voidaan esittää esim. UserStoryinä
 					-Alussa kerätään vain suppeita kuvauksia
 						-Priorisoidaan ja työmäärää arvioidaan
 					
 			-Sprint backlog 
+
+ANNEN OPPI: Varsinaisen scrum-prosessin ulkopuolella, siis sprinttien ulkopuolella, tehdään koko ajan jatkuvasti
+määrittelytyötä Product Backlogin vaatimusten tarkentamiseksi (user storyt jne). Sitä tekee Product Owner ja tilaajan muut mahdolliset edustajat/sidosryhmät, mutta koska heidän
+osaamisensa ei ole määrittelytyössä, täytyy devaajilta varata about joka päivälle jonkun verran aikaikkunaa, jolloin he
+ovat mukana määrittelytyössä. Määrittelytyöhön voi osallistua myös sellaisia it-ihmisiä, jotka eivät kuulu scrum tiimiin, esim
+käyttöliittymäsuunnittelija, joka tekee tilaajan vaatimuksiin liittyviä käyttöliittymäprotoja helpottamaan käyttäjien
+ymmärrystä siitä, mitä ovat saamassa/tilaamassa ja toisaalta helpottamassa devaajia arvioimaan työmääriä.
+(Lähde. Reaktor Innovations, Jukka Lindström, scrum master -koulutusaineisto, syksy 2011)
+
+
 	SPRINTTI
 			-Alussa 2 osainen sprintin suunnittelu palaveri
-					-Eka Osa
-							-Product owner esittelee product backlogin alussa olevat vaatimukset
-							-Tiimi sisäistää mitä ^tarkoittaa
-							-Valitsee ne, minkä toteuttamiseen voivat sitoutua
+					-Eka Osa (nimi?)
+							-Product owner esittelee product backlogin korkeimmalla prioriteetilla olevat vaatimukset eli sprinttin ehdotettavat
+							-Tiimi sisäistää mitä tarkoittaa
+							-Valitsee ne, minkä toteuttamiseen voivat sitoutua ja jotka mahtuvat työmääriltään aikaikkunaan
 							-Asetetaan Sprint goal - geneerisempi ilmaus siitä, mitä tehdään
 					-Toka Osa
 							-Miten sprintin tavoitteet saavutetaan
 							-lista tehtävistä (task)
-							-Luodaan sprintin backlog
+							-Luodaan sprintin backlog							
 					-Max 4h kumpikin palaveri
-	  	-Alussa tiimi valitsee ProductBacklogista suoritettavat asiat
-			-Tiimi toteuttaa valitut asiat itseorganisoidusti
+	  	-Tiimi toteuttaa valitut asiat itseorganisoidusti
 			-Daily scrum palaverit
 					-Päivä alkaa tällä
 					-Max 15min
-					-Kaikki paikalla
+					-Kaikki paikalla (scrum-tiimi, product owner ja scrum master)(saa olla myös muita, mutta ei puheoikeutta)
 					-Jokaiselle
 							-Mitä sain eilen aikaan
 							-Mitä tänään aikaan
 							-Mitä esteitä
-					-Jokaiselle selviää projetin tilanne
+					-Jokaiselle selviää projetin tilanne ja päivitetään burndown chart, jota pidetään seinällä työtilassa
 			-1-4 vkon iteraatiot
 			-Kiinteän pituinen
 			-Valitaan vain sen verran mikä varmasti saadaan tehtyä
 			-Aina lopussa toimiva versio
-			-Vaatimukset eivät muutu sprintin aikana
+			-Vaatimukset eivät muutu sprintin aikana eli sprintti on kiinnitetty (product backlogia sen sijaa saa uudelleenorganisoida)
 			Definition of DONE
+				-jo vaatimusta määriteltäessä kerrotaan, miten vaatimus testataan ja miten voidaan todentaa sen DoD
 				-analysoitu, dokumentu, suunniteltu, testattu, testaus automatisoitu, integroitu muuhun ohjelmistoon.
-				-Jos ei valmis niin seur sprintissä uudestaan (scrum master vastaa niiden hylkäämisestä)
-			-Laadusta ei tingintä vaikka jotain jäisi tekemättä
+				-Jos ei valmis niin seur sprintissä uudestaan eli korjauksille pitä varata seur sprintistä aikaa
+					(product owner vastaa niiden hylkäämisestä)
+			-Laadusta ei tingitä vaikka jotain jäisi tekemättä - ei aloiteta seuraavaa ominaisuutta ennenkuin ed on valmis
 			-Lopuksi katselmointi
 					-katsotaan/demotaan lopputulosta ei powrpoint kalvoja
 					-Product owner katsoo, mitä saatiin tehtyä
+					-hyväksytään sprint backlogin mukaisesti tehdyt vaatimukset valmiiksi tai esitetään korjaustarpeita joillekin
 					-Kaikki saa antaa palautetta tuotteesta
 						-Ehdottaa uusia vaatimuksia.
 						->product backlogin uudelleen prioisointi
@@ -116,12 +134,13 @@ Vaatimusten määrittely
 			-ei toiminnalliset vaatimukset
 					-"laatuvaatimukset"
 							-Käytettävyys, testattavuus, laajennettavuus, suorituskyky, skaalautuvuus, tietoturva
+Anne: ei-toiminnalliset vaatimukset: tietosisältö-, tekniset-, tietoturva-, laadulliset-, käytettävyysvaatimukset
 					-ympäristön rajotteet
 							-Toteutusteknologia
 							-intogrointi muihin järjestelmiin
 							-Standardit
 			-Ennen toteutusta
-			-Lineaarisissa malleissa aina kokoneen ennen
+			-Lineaarisissa malleissa aina kokonaan ennen
 			-Iterativisissa matkan varrella
 			-Asiakas/sen edustaja aktiivisesti mukana prosessissa
 			-Vaiheet
@@ -148,9 +167,9 @@ Vaatimusten määrittely
 					-repeat
 			
 			-1900 
-					-Kaikki kerrallaan
+					-Kaikki kerrallaan (vaiheet täydellisinä peräkkäin)
 					-Raskas prosessi
-					-Muutoksia vaikea tehdä
+					-Muutoksia vaikea tehdä (kalliita ja muutos pitää tehdä moneen paikkaan, jos se löytyy myöhään)
 					-Ei toimi
 			-2000 
 					-tehdään useassa osassa
@@ -158,8 +177,9 @@ Vaatimusten määrittely
 							-Uusiokäyttä räätälöidään valmiita komponenttejä
 					-voi vaikeuttaa kustannusten arviointia
 							-Väärin muotoiltu vaatimus voi rikkoa jotain
-			-Nykyisin kaikki vaiheet sotketaan yhteen.
+			-Nykyisin kaikki vaiheet sotketaan yhteen - tehdään pienemmissä erissä, nopeammassa syklissä.
 			-Mahdollista saada aiemmin tuotantoon
+			-Asiakas ei ehkä oikeasti haluakaan kaikkia vaatimuksia toteutettavaksi
 		Estimointi
 			-StoryPoint
 				-arvioidaan UserStoryjen pituutta. 
