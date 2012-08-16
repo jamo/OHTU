@@ -133,7 +133,7 @@ Vaatimusten määrittely
 								-Pitää voida testata niin että voidaan yksiselitteisesti nähdä onko ominaisuus tehty
 			-ei toiminnalliset vaatimukset
 					-"laatuvaatimukset"
-							-Käytettävyys, testattavuus, laajennettavuus, suorituskyky, skaalautuvuus, tietoturva
+							-Käytettävyys, testattavuus, laajennettavuus, suorituskyky, skaalautuvuus, tietoturva, time-to-market
 Anne: ei-toiminnalliset vaatimukset: tietosisältö-, tekniset-, tietoturva-, laadulliset-, käytettävyysvaatimukset
 					-ympäristön rajotteet
 							-Toteutusteknologia
@@ -300,6 +300,11 @@ Anne: ei-toiminnalliset vaatimukset: tietosisältö-, tekniset-, tietoturva-, la
 								-Asiakkaan tasolla mielekäs toimivuus
 				-CI continuous testing - Jatkuva integraatio
 						-Perinteisen integaatiotestauksen korvaava työskentelytapa
+						-Yksikkö-, integraatio- ja järjestelmätason testejä
+						-CI palvelin tarkkeilee repoa, jos muutoksia hakee ne ja ajaa testit
+						-Jos koodi ei käänny, tai testit eivät mene läpi, seuraa poikkeustilanne
+								-Do not break the build
+								-Korjattava välittömästi
 						-Smoke test
 								-Testaa sovelluksen pääpiirteittäin, paljastaa suurimmat ongelmat
 						-Daily build
@@ -318,11 +323,76 @@ Anne: ei-toiminnalliset vaatimukset: tietosisältö-, tekniset-, tietoturva-, la
 												-Secondary build
 													-Suoritetaan palvelimella
 													-Sisältää hitaammat testi
+							  -Joskus viedään astetta pitemmälle. lisätään automaattinen deployaus
+									-Hyödyllinen käytäntö
+											-Voidaan demota asiakkaalle milloin tahansa
+											-Voidaan ajaa pitkäkestoisia kuormitustestejä
+											-Tutkivaa testaamista
+									-Nykyisin esim. web sovellukset tykätään julkaista monta kertaa päivässä tuotantoon/testaukseen
+										-Continuous deployment
 				-Exploratory testing - tutkiva testaus
 						-Ei formaalia testaus tapaa
 						-Luo uusia testejö vanhan palautteen perusteella
 						-Kiinnitetään huomio varsinaisen testattavan ulkopuolisiin asioihin
 						-Ei sovellu regressiotestaamiseen
+						-ad hoc testaukseksi aikanaan kutsuttu
+						
+Ohjelmiston suunnittelu
+		-Ohjelmistojen tekeminen sisältää aina
+				-Vaatimusten analysoinnin ja määrittelyn
+				-Suunnittelun
+				-Toteuttamisen
+				-Testauksen
+				-ylläpidon
+		-Suunnittelun tavoitteena on määritellä, miten saada vaatimusmäärittelyn mukaan toimiva ohjelma
+		-Arkkitehtuuri suunnittelu
+				-Ohjelman rakenne karkealla tasolla
+				-Mistä suurimmista rakennekomponenteista koostu
+				-Miten komponentit yhdistetään
+				-Ei yksikäsitteistä määritelmää
+				-Määrittelee ohjemiston rakenteen
+						-Rakenne osien vastuut
+						-Niiden välisen kommunikaation
+				-Keskittyy oleellisiin osii
+						-Skaalautuvuus
+						-Tietotrva
+					-Voivat muutttua ajan myötä
+					-kts ~~rivi_136
+					-Toimintaympäristökin muokkaa arkkitehtuuria
+					-Integraatio olemassaoleviin järjestelmiin
+				-Perustuu johonkin arkkitehtuurimalliin
+						-Hyväksi havaittu tapa stukturoida tietyntyyppistä sovellusta
+								-Kerrosarkkitehtuuri
+										-Kerros on kokoelma toisiinsa liitettyjä olioita tai alikomponentteja jotka muodostavat toiminnan suhteen loogisen kokonaisuuden
+										-Ylempänö oleva kerros käyttää vain alla olevan tarjoamia palveluita
+								-MVB
+								-Pipes-and-filters
+								-Repository
+								-Client-server
+								-SOA
+								
+					-Vesiputouksessa laajemmin käytetty/enemmän aikaa käytetty
+							-Oma arkkitehti
+					-Agilessa vähemän käytetty
+							-Toki agilessakin, mutta syntyy muun ohessa
+							-Nollasprinnti, rakennetaan alustava arkkitehtuuri
+							-Ei erillistä arkkitehtiä
+					-Inkrementaalnen arkkitehtuuri
+							-Ei voia sunnitella projktin alussa, muuttuu matkalla
+		-Oliosuunnittelu
+				-yksittäisten komponenttien valmistelu
+		-Vesiputousmalleissa tapahtuu alussa
+		-Agilessa joka iteraation aikana
+		BDUF Big Design Up Front on yhä joissais, missä tietynlainen tunnettu jörjestelmä, vaatimukset eivät muutu
+		
+						
+						
+						
+						
+						
+						
+						
+						
 						
 			
 			
