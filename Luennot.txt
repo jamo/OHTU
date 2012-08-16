@@ -294,8 +294,30 @@ Anne: ei-toiminnalliset vaatimukset: tietosisältö-, tekniset-, tietoturva-, la
 								
 				-ATDD / BDD
 						-Käyttäjätason TDD
+						-User storyjen testaus
+						-ATDD osin sama kuin BDD
+						-ATDD
+								-Asiakkaan tasolla mielekäs toimivuus
 				-CI continuous testing - Jatkuva integraatio
 						-Perinteisen integaatiotestauksen korvaava työskentelytapa
+						-Smoke test
+								-Testaa sovelluksen pääpiirteittäin, paljastaa suurimmat ongelmat
+						-Daily build
+								-Päivittäi tehtävä toimiva versio sovelluksesta
+						Kehittäjän vaiheet
+								-Uusin koodi reposta
+								-Toteutetaan työn alla oleva toiminnallisuus ja sille testit
+								-Integroidaan koodi muun yhteyteen
+								-Haetaan uusin koodi ja ajetaan testit
+								-Kun kaikki käyttäjän koneella läpi, niin pushaa repoon
+								-CI palvelin huomaa muutokset ja ajaa testi 
+								-Jos testit liian hitaita
+										-Jaetaan en kahteen osaan
+												-Commit build
+													-Oikeus pushata palvelimelle
+												-Secondary build
+													-Suoritetaan palvelimella
+													-Sisältää hitaammat testi
 				-Exploratory testing - tutkiva testaus
 						-Ei formaalia testaus tapaa
 						-Luo uusia testejö vanhan palautteen perusteella
