@@ -321,6 +321,9 @@ Anne: ei-toiminnalliset vaatimukset: tietosisältö-, tekniset-, tietoturva-, la
 				-Exploratory testing - tutkiva testaus
 						-Ei formaalia testaus tapaa
 						-Luo uusia testejö vanhan palautteen perusteella
+						-Kiinnitetään huomio varsinaisen testattavan ulkopuolisiin asioihin
+						-Ei sovellu regressiotestaamiseen
+						
 			
 			
 			
