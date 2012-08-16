@@ -32,7 +32,7 @@ SCRUM:
 			-Sprint backlog 
 
 ANNEN OPPI: Varsinaisen scrum-prosessin ulkopuolella, siis sprinttien ulkopuolella, tehdään koko ajan jatkuvasti
-määrittelytyötä Product Backlogin vaatimusten tarkentamiseksi (user storyt jne). Sitä tekee Product Owner ja tilaajan muut mahdolliset edustajat/sidosryhmät, mutta koska heidän
+määrittelytyötä Product Backlogin vaatimusten tarkentamiseksi (git jne). Sitä tekee Product Owner ja tilaajan muut mahdolliset edustajat/sidosryhmät, mutta koska heidän
 osaamisensa ei ole määrittelytyössä, täytyy devaajilta varata about joka päivälle jonkun verran aikaikkunaa, jolloin he
 ovat mukana määrittelytyössä. Määrittelytyöhön voi osallistua myös sellaisia it-ihmisiä, jotka eivät kuulu scrum tiimiin, esim
 käyttöliittymäsuunnittelija, joka tekee tilaajan vaatimuksiin liittyviä käyttöliittymäprotoja helpottamaan käyttäjien
@@ -190,16 +190,115 @@ Anne: ei-toiminnalliset vaatimukset: tietosisältö-, tekniset-, tietoturva-, la
 			-Aika arviot skaalalla tyyliin 1,3,4,5,10,50,100,200, epic
 			-parempi 1,2,4,8,epic
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+	Verifiointi
+			-We are building the product right
+			-Vastaa vaatimusmäärittelyä
+		-Katselmoinnit
+				-Käydään tehtyjä dokkareita ja koodia läpi
+				-Staattinen tekniikka
+				-Jonkun muun kuin ohjelmoijan toimesta
+				-Tyyli, ylläoidettävyys selviävät
+				-Pariohjelmoinnissa toinen aina katselmoi kun toinen koodaa
+		-Tarkastus, katsalmusta muodollisempi
+				-formaali kokous
+		-Testaus
+					-Dynaaminen tekniikka
+					-Virheettömäksi testaus lähes mahdotonta
+					-2 eri tavoitetta
+							-Osoittaa että täyttää asetetut vaatimukset (acceptance test)
+							-Löytää ohjelmasta virheitä
+					-Molemmat ulkosen laadun paramtamiseen
+	Validointi
+			-We are building the right product 
+			-Täytää käyttäjän odotukset
+		-Molempien tavoitteena varmistaa että ohjelma on riittävän hyvä ja toimii siihen mihin tarkoitettu
+			-Vesiputouksessa juuri katselmointi
+			-Vesiputouksessa	katselmoinnilla			
+			-Agilessa tapahtuu Sprint review yhteydessä, eli sprinttien lopussa
+
+	Koodin yhteisomistus
+			-Kukaan ei omista tiettyä kohtaa koodsta
+			-Kaikki saa muokata koodia missä tahansa
+			-Koodia tuntematon voi saada tuhoa aikaan
+	Coding Standards
+			-Tiimillä tyyli johon kaikki sitoutuvat
+	
+	TESTAUS
+			-Testauksen tasot
+				-Business Requirements  --  		User acceptance testing
+				-Systen Requiremenrs 	  --  	System testing
+				-Design specification 	-- 	Integration testing
+				-Program Specification  -- Unit testing
+				-Code										-- Source code review
+			-Yksikkötestaus(Unit testing)
+					-Yksittäisten metodien, luokkien testaus
+					-Ohjelmoijat suorittavat
+					-Koodin rakenne huomioidaan testattaessa (white box -testing)
+					-Sisäisen laadun kontrollointi
+					-Vain kehityksen iloksi
+						-Toki hyötyjä myös käyttäjille
+					-Bugit taloudellista huomata ajoissa
+			-IntegraatioTestaus(integration testing)
+					-Komponenttien yhdistäminen
+					-Sovelluskehittäjä suorittaa
+						-Bottom up
+								-Yksilöllisistä komponenteista ja vähitellen liitetään niitä yhteen
+						-Top-down
+								-Ensin korkean tason rakenteet ja käytetään stubeja
+								-Stubit korvataan yksitellen
+						-Big bang
+								-Tapa yhdistää koodi kerralla.
+								-Riskialtis
+			-Järjestelmätestaus(system testing)
+					-Varmistetaan että järjestelmä toimii halutulla tavalla
+					-Käyttäjäorganisaatio suorittaa
+					-Testataan saman rajapinnan kautta, mistä ohjelmaa käytetään (black box -testaus)
+					-ALALAJEJA
+							-Käytettävyystestaus
+							-Stressitestaus
+							-Tietoturvan testaus
+			-Käyttäjän hyväksymistestaus (user acceptance testing)
+					-???Loppukäyttäjän suorittama testaus???
+					-Hyväksymis testit tehdään käyttäjän kielellä
+					-Esim. userstoryjä
+					-Storyn hyväksymistestit heti sprintin lopussa
+			-Regressiotestaus
+					-Iteratiivisessa kehityksessä jokainen iteraatio tuottaa lisää oimivia osia koodiin, tulee huolehtia että muutokset eivät riko mitään vanhaa
+					-Testit ajateen aina uudelleen kun tulee muutoksia
+					-Joukko yksikkö-, integraatio- ja järjestelmätestejä
+	 -Testisyötteet
+					-Jaetaan ekvivalenssiluokkiin, yksi testi kutakin kohti
+	 -Testauskattavuus
+					-Rivikattavuus
+						-Monellako % riveista käydään
+					-Haarautumakattavuua
+						-Montako % ehtolauseiden haaroista katsottu
+	-Ketterien menetelmien testauskäytänteiyä
+				-TDD
+						-Paljon kattavia testejä
+						-Suunnitelu ja toteutustasin tekniikka
+						-XPn käytänteitä
+						-Vaiheet
+								-Ensin testiö sen verran että se feilaa
+								-Sitten koodia niin että testi menee löpi
+								-Refaktorointi
+								-ja takas alkuun
+						-Ei ole tapana juuri suunnitella metodeja etukäteen
+						-Sisäinen rakenne muodostuu refaktorointien kautta
+						-Ei tule extra ominaisuuksia (YAGNI you ain't gonna need it)
+						-Koodin ylläpidettävyys pääosin hyvö
+						-Virheet huomataan heti
+						-Testikoodia tulee paljon
+						-Tuotantokoodia voi tulla vähemmän
+						-Legacy koodin laajentaminen vaikeaa
+								
+				-ATDD / BDD
+						-Käyttäjätason TDD
+				-CI continuous testing - Jatkuva integraatio
+						-Perinteisen integaatiotestauksen korvaava työskentelytapa
+				-Exploratory testing - tutkiva testaus
+						-Ei formaalia testaus tapaa
+						-Luo uusia testejö vanhan palautteen perusteella
 			
 			
 			
