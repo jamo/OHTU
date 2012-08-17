@@ -30,6 +30,8 @@ SCRUM:
 						-Priorisoidaan ja työmäärää arvioidaan
 					
 			-Sprint backlog 
+			-Velositeetti	
+					-???Määrä, jonka ohjelmoijat saavat tehtyä???
 
 ANNEN OPPI: Varsinaisen scrum-prosessin ulkopuolella, siis sprinttien ulkopuolella, tehdään koko ajan jatkuvasti
 määrittelytyötä Product Backlogin vaatimusten tarkentamiseksi (git jne). Sitä tekee Product Owner ja tilaajan muut mahdolliset edustajat/sidosryhmät, mutta koska heidän
@@ -365,6 +367,7 @@ Ohjelmiston suunnittelu
 								-Kerrosarkkitehtuuri
 										-Kerros on kokoelma toisiinsa liitettyjä olioita tai alikomponentteja jotka muodostavat toiminnan suhteen loogisen kokonaisuuden
 										-Ylempänö oleva kerros käyttää vain alla olevan tarjoamia palveluita
+										-Agilessa ei tehdä kerros kerrokselta, vaan sitä mukaa vain se, mitä kulloinkin tarvitaan
 								-MVB
 								-Pipes-and-filters
 								-Repository
@@ -375,18 +378,72 @@ Ohjelmiston suunnittelu
 							-Oma arkkitehti
 					-Agilessa vähemän käytetty
 							-Toki agilessakin, mutta syntyy muun ohessa
-							-Nollasprinnti, rakennetaan alustava arkkitehtuuri
+							-Nollasprinnti, rakennetaan alustava arkkitehtuuri - Ei välttämättä hyvä idea
 							-Ei erillistä arkkitehtiä
 					-Inkrementaalnen arkkitehtuuri
 							-Ei voia sunnitella projktin alussa, muuttuu matkalla
+							-Jo tehtyjä ratkaisuja voidaan muuttaa matkan varrella
+							
 		-Oliosuunnittelu
 				-yksittäisten komponenttien valmistelu
-		-Vesiputousmalleissa tapahtuu alussa
+				-Laadukkaan koodin tunnusmerkit
+						-kapselointi
+								-Tapaa ohjelmoida olion toteutuksen yksityiskohdat luokkamäärittelyn sisään – piiloon olion käyttäjältä – kutsutaan kapseloinniksi. Olion käyttäjän ei tarvitse tietää mitään olioden sisäisestä toiminnasta. Eikä hän itse asiassa edes saa siitä mitään tietää vaikka kuinka haluaisi! ”
+						-koheesio
+								-Koheesiolla tarkoitetaan sitä, kuinka pitkälle metodissa, luokassa tai komponentissa oleva ohjelmakoodi on keskittynyt tietyn toiminnallisuuden toteuttamiseen
+								-Luokkatason koheesio
+										-Luokan vastuulla vain yksi tehtävä
+						-Single Responsibility
+										-Oikeastaaan sama kuin koheesio
+						-riippuvuuksien vähäisyys
+								-Single responsibility perjaatteen vuoksi tulee paljon olioita joilla paljen lyhyitä metodeja
+								-Näiden tulee jotenkin kyötä kommunikoimaan keskenään
+									-Syntyy paljon riippuuksia
+									-Turhat pitää karsio
+									-Ideana on eliminoida tarpeettomat riippuvuudet ja välttää riippuvuuksia konkreettisiin asioihin
+									-Riippuvuuden tulee kohdistua asiaan, joka ei muutu helposti, esim. abstraktiin luokkaan tai rajapintaan
+									-Pyrkii eliminoiaan olioiden välisiä riippuvaisuuksia
+									-Yksi oliosuunnittelun kulmakivi on periaate Favour composition over inheritance eli suosi yhteistominnassa toimivia oliota perinnän sijaan - joskus olioiden vastuiden muutto voi olla kannattavaa
+						-toisteettomuus, selkeys, testattavuus
+						-redundanssi - DRY
+								-DRY don't rereat yourself
+								-Ei copypaste koodia
+								-Kaikki toistettavuus, ei vain kopypaste. Jos sama asia tehdään monta kertaa, niin se eriytetään omaan metodiin
+						-Testattavuus
+								-Helppo testata
+								-Kattavia yksikkötestejä helppo tuottaa
+						-Koodin luettavuus
+								-Clean code
+								-Tarkoitus tehdä luettavaa koodia
+						
+				-Vesiputousmalleissa tapahtuu alussa
 		-Agilessa joka iteraation aikana
-		BDUF Big Design Up Front on yhä joissais, missä tietynlainen tunnettu jörjestelmä, vaatimukset eivät muutu
+		-BDUF Big Design Up Front on yhä joissais, missä tietynlainen tunnettu jörjestelmä, vaatimukset eivät muutu
+		-Hyvin ylläpidettävän koodin tunnusmerkit
+				-Yhtä paikkaa pitää pystyä muuttamaan siten ettei muutoksesta aiheudu sivuvaikutuksia sellaisiin kohtiin koodia jota muuttaja ei pysty ennakoimaan
+				-Jos ohjelmaan tulee tehdä laajennus tai bugikorjaus, tulee olla selvää mihin kohtaan koodia muutos tulee tehdä
+				-Jos ohjelmasta muutetaan ”yhtä asiaa”, tulee kaikkien muutosten tapahtua vain yhteen kohtaan (metodiin tai luokkaan)
+				-Muutosten ja laajennusten jälkeen tulee olla helposti tarkastettavissa ettei muutos aiheuta sivuvaikutuksia muualle järjestelmään
+						
+	-Suunnittelumallis
+						-Static factory
+								-Tehdään tehdasmetodeja, jotka käyttävät konstruktoreja ja luovat olio.
+								-Konstruktirit privateja jotta niitä ei voi suoraan käyttää
+								-Ei sovellu hyvin testaamiseen, mock olioita vaikea käyttää
+						-Strategy
+								-iffien ja switch case tilalle
+								-Usein strategyn avulla hoidetaan tilanne missä käyttäytyminen on muuten sama mutta tietyissä kohdissa on käytössä eri ”algoritmi”
+						-Command - komento
+								-pelkän algoritmin kapseloivista strategiaolioista koko komen- non suorituksen kapseloiviin olioihin eli command-suunnittelumalliin
+						-Template method
+								-Asia hoidettiin tekemällä abstrakti yliluokka, joka sisältää metodin	suorita() joka toteuttaa koko komennon suorituslogiikan
+	   							Suorituslogiikan vaihtuva osa eli operaation laskun tulos on määritelty abstraktina metodina laske() jota suorita() kutsuu
+  								Konkreettiset toteutukset Summa ja Tulo ylikirjoittavat abstraktin metodin laske()
+								-Template-metodin avulla siis saadaan määriteltyä ”geneerinen algoritmirunko”, jota voidaan aliluokissa erikoistaa sopivalla tavalla
+								-Osittain samaa sukua Template-methodin kanssa, siinä kokonainen algoritmi tai algoritmin osa korvataan erillisessä luokassa toteutetulla toteutuksella
+								-
+								
 		
-						
-						
 						
 						
 						
