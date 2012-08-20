@@ -4,7 +4,7 @@ SCRUM:
 		3 ROOLIA
 				-Kehittäjä
 						-Muodostaa scrum tiimin
-								-Tiimiä ei johdeta ulkopuolelta, itse organisoituva
+							-Tiimiä ei johdeta ulkopuolelta, itse organisoituva
 						-Kaikilla osaaminen, kompetenssi, järjestelmän toteuttamiseen ja suunnitteluun
 						-Työskentelevät samassa paikassa
 				-Scrum master
@@ -44,7 +44,7 @@ ymmärrystä siitä, mitä ovat saamassa/tilaamassa ja toisaalta helpottamassa d
 
 	SPRINTTI
 			-Alussa 2 osainen sprintin suunnittelu palaveri
-					-Eka Osa (nimi?)
+					-Eka Osa
 							-Product owner esittelee product backlogin korkeimmalla prioriteetilla olevat vaatimukset eli sprinttin ehdotettavat
 							-Tiimi sisäistää mitä tarkoittaa
 							-Valitsee ne, minkä toteuttamiseen voivat sitoutua ja jotka mahtuvat työmääriltään aikaikkunaan
